@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+header, main, footer {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+nav a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+#about {
+    align-items: center;
+}
+
+#about img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+#education ul {
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.skill {
+    background-color: #e0e0e0;
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
