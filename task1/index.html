@@ -3,17 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Резюме | Frontend Developer</title>
+    <title>Семантическая вёрстка. Страница-резюме</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="header-info">
-            <h1>Иван Иванов</h1>
-            <h2>Junior Frontend Developer</h2>
-            <p>Пишу чистый код, создаю удобные интерфейсы.</p>
-        </div>
+        <h1>Спасов Глеб Васильевич</h1>
+        <p>Системный аналитик</p>
+        <p>Слоган: Не придумал</p>
         <nav>
             <a href="#about">О себе</a>
             <a href="#education">Образование</a>
@@ -24,41 +22,35 @@
 
     <main>
         <section id="about">
-            <img src="https://i.pravatar.cc/300?img=11" alt="Фотография Ивана Иванова" class="avatar">
-            <article class="bio">
-                <h3>О себе</h3>
-                <p>Привет! Меня зовут Иван, я начинающий веб-разработчик. Увлекаюсь созданием современных пользовательских интерфейсов и семантической вёрсткой. Стремлюсь постоянно развиваться и изучать новые технологии в сфере фронтенда. В свободное время решаю алгоритмические задачи и читаю статьи по веб-дизайну.</p>
-            </article>
+            <h2>О себе</h2>
+            <img src="5260506142515863634.jpg" alt="Моя фотокарточка" class = "avatar">
+            <p>Живу в городе Минске, учусь на механико-ьамтематическом факультете на системного аналитика. Подрабатываю репетитором. Всех очень сильно люблю. Иногда получается шутик даже так, что кто-то смеется! </p>
         </section>
 
         <section id="education">
-            <h3>Образование</h3>
+            <h2>Образование</h2>
             <ul>
-                <li><strong>Университет ИТМО</strong> — Программная инженерия (2020 – 2024)</li>
-                <li><strong>Hexlet / HTML Academy</strong> — Курсы по профессиональной веб-разработке (2023)</li>
+                <li>Университет - БГУ; Факультет - механико-математический; Специальность — Системный анализ и компьютерная математика. Время обучения: 2024 - 2028</li>
             </ul>
         </section>
 
         <section id="skills">
-            <h3>Навыки</h3>
-            <div class="skills-container">
-                <span class="skill">HTML5</span>
-                <span class="skill">CSS3</span>
-                <span class="skill">Flexbox</span>
-                <span class="skill">Git & GitHub</span>
-                <span class="skill">Figma</span>
-                <span class="skill">Базовый JavaScript</span>
+            <h2>Навыки</h2>
+            <div class="skills-list">
+                <span class="skill">SQL</span>
+                <span class="skill">UML</span>
+                <span class="skill">Matlab</span>
+                <span class="skill">Communication</span>
+                <span class="skill">GitHub</span>
             </div>
         </section>
     </main>
 
     <footer id="contacts">
-        <h3>Связаться со мной</h3>
-        <div class="contact-links">
-            <a href="mailto:ivan.example@mail.com">ivan.example@mail.com</a>
-            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
-            <a href="https://github.com" target="_blank">Мой GitHub</a>
-        </div>
+        <h2>Контакты</h2>
+        <a href="glebspasov623@gmail.com">glebspasov623@gmail.com.com</a>
+        <a href="tel:+375295873610">+375 (29) 587-36-10</a>
+        <a href="https://github.com/GlebSpasov">Github</a>
     </footer>
 
 </body>
