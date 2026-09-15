@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche 911 GT3 RS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="header__inner">
+        <a href="#" class="header__logo">PORSCHE</a>
+        <button class="header__burger" aria-label="Открыть меню">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+        </button>
+        <nav class="header__nav">
+            <a href="#hero" class="header__link">Обзор</a>
+            <a href="#gallery" class="header__link">Галерея</a>
+            <a href="#specs" class="header__link">Характеристики</a>
+            <a href="#contact" class="header__link">Заявка</a>
+        </nav>
+    </div>
+</header>
+
+<main class="page-grid">
+
+    <section id="hero" class="hero">
+        <div class="hero__header">
+            <h1 class="hero__title">GT3 RS</h1>
+            <p class="hero__subtitle">PORSCHE 911</p>
+        </div>
+
+        <div class="hero__image-wrapper">
+            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1200&auto=format&fit=crop" alt="Porsche 911 GT3 RS" class="hero__main-img">
+        </div>
+
+        <div class="hero__description">
+            <p>
+                Атмосферный двигатель мощностью 386 кВт (525 л.с.) выжимает максимум из гоночных технологий.
+                Суммарная прижимная сила нового Porsche 911 GT3 RS составляет 860 кг на скорости 285 км/ч.
+            </p>
+        </div>
+
+        <div class="hero__stats">
+            <div class="stat-card">
+                <span class="stat-card__val">525 HP</span>
+                <span class="stat-card__lbl">Мощность</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-card__val">296 KM/H</span>
+                <span class="stat-card__lbl">Макс. скорость</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-card__val">3.2 SEC</span>
+                <span class="stat-card__lbl">0–100 км/ч</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Аэродинамика & Дизайн</h2>
+        <div class="gallery__grid">
+            <article class="card">
+                <div class="card__img-box">
+                    <img src="https://dvizhok.su/assets/images/resources/22265/porsche-911-gt3rs-rearwing.jpg" alt="Активное антикрыло GT3 RS">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Антикрыло</h3>
+                    <p class="card__text">Система DRS обеспечивает непревзойденную устойчивость на высоких скоростях.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__img-box">
+                    <img src="https://a.storyblok.com/f/322327/1812x776/3364cbf0f2/cz23v20od0007-911-gt3-rs-clubsport-package-interior.jpg/m/632x474/smart/filters:format(webp)" alt="Гоночный кокпит Porsche">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Гоночный кокпит</h3>
+                    <p class="card__text">Облегченные углепластиковые кресла-ковши и органы управления DRS на руле.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card__img-box">
+                    <img src="https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?q=80&w=800&auto=format&fit=crop" alt="Передний фасад GT3 RS">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Отсутствие переднего багажника</h3>
+                    <p class="card__text">Вместо него под капотом установлен один массивный центральный радиатор.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact__container">
+            <h2 class="section-title">Тест-драйв / Запрос</h2>
+            <p class="contact__subtitle">Оставьте ваши контакты для тест-драйва на треке</p>
+
+            <form class="contact-form">
+                <div class="contact-form__group">
+                    <label for="name" class="contact-form__label">Имя</label>
+                    <input type="text" id="name" name="name" class="contact-form__input" placeholder="Иван Иванов" required>
+                </div>
+
+                <div class="contact-form__group">
+                    <label for="email" class="contact-form__label">Email</label>
+                    <input type="email" id="email" name="email" class="contact-form__input" placeholder="porsche@example.com" required>
+                </div>
+
+                <div class="contact-form__group">
+                    <label for="message" class="contact-form__label">Сообщение</label>
+                    <textarea id="message" name="message" class="contact-form__textarea" rows="4" placeholder="Укажите предпочитаемую дату..."></textarea>
+                </div>
+
+                <button type="submit" class="contact-form__btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer__inner">
+        <p class="footer__copy">&copy; 2026 Porsche AG. Все права защищены.</p>
+        <div class="footer__links">
+            <a href="#" class="footer__link">Конфиденциальность</a>
+            <a href="#" class="footer__link">Контакты</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
