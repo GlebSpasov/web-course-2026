@@ -10,7 +10,6 @@ const errorMessage = document.getElementById('error-message');
 const attemptsCountEl = document.getElementById('attempts-count');
 const historyList = document.getElementById('history-list');
 
-//генерация случайного 4-значного числа с неповторяющимися цифрами
 function generateSecretNumber() {
     const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     for (let i = digits.length - 1; i > 0; i--) {
@@ -20,19 +19,16 @@ function generateSecretNumber() {
     return digits.slice(0, 4).join('');
 }
 
-//валидация ввода пользователя
 function validateInput(value) {
     if (!/^\d{4}$/.test(value)) {
         return { isValid: false, message: 'Введите ровно 4 цифры!' };
     }
-    const uniqueDigits = new Set(value);
-    if (uniqueDigits.size !== 4) {
+    if (new Set(value).size !== 4) {
         return { isValid: false, message: 'Все 4 цифры должны быть разными!' };
     }
     return { isValid: true, message: '' };
 }
 
-//подсчёт быков и коров
 function calculateBullsAndCows(secret, guess) {
     let bulls = 0;
     let cows = 0;
@@ -63,64 +59,6 @@ function formatResultText(bulls, cows) {
     return [bullStr, cowStr].filter(Boolean).join(', ');
 }
 
-function initGame() {
-    secretNumber = generateSecretNumber();
-    attemptsHistory = [];
-    isGameOver = false;
-    errorMessage.textContent = '';
-    input.value = '';
-    input.disabled = false;
-    checkBtn.disabled = false;
-    render();
-}
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (isGameOver) return;
-
-    const guess = input.value.trim();
-    const validation = validateInput(guess);
-
-    if (!validation.isValid) {
-        errorMessage.textContent = validation.message;
-        return; // Попытка не засчитывается
-    }
-
-    errorMessage.textContent = '';
-    const { bulls, cows } = calculateBullsAndCows(secretNumber, guess);
-
-    const attemptRecord = {
-        id: Date.now(),
-        guess: guess,
-        bulls: bulls,
-        cows: cows,
-        isWin: bulls === 4
-    };
-
-    attemptsHistory.push(attemptRecord);
-    input.value = '';
-    input.focus();
-
-    if (bulls === 4) {
-        isGameOver = true;
-        input.disabled = true;
-        checkBtn.disabled = true;
-    }
-
-    render();
-});
-
-input.addEventListener('input', () => {
-    if (errorMessage.textContent) {
-        errorMessage.textContent = '';
-    }
-});
-
-newGameBtn.addEventListener('click', () => {
-    initGame();
-});
-
-//рендеринг истории попыток из массива данных
 function render() {
     historyList.innerHTML = '';
 
@@ -150,4 +88,61 @@ function render() {
     attemptsCountEl.textContent = attemptsHistory.length;
 }
 
-initGame(); // запуск 
+function initGame() {
+    secretNumber = generateSecretNumber();
+    attemptsHistory = [];
+    isGameOver = false;
+    errorMessage.textContent = '';
+    input.value = '';
+    input.disabled = false;
+    checkBtn.disabled = false;
+    render();
+    console.log('Секретное число (для проверки):', secretNumber);
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (isGameOver) return;
+
+    const guess = input.value.trim();
+    const validation = validateInput(guess);
+
+    if (!validation.isValid) {
+        errorMessage.textContent = validation.message;
+        return;
+    }
+
+    errorMessage.textContent = '';
+    const { bulls, cows } = calculateBullsAndCows(secretNumber, guess);
+
+    const attemptRecord = {
+        guess: guess,
+        bulls: bulls,
+        cows: cows,
+        isWin: bulls === 4
+    };
+
+    attemptsHistory.push(attemptRecord);
+    input.value = '';
+    input.focus();
+
+    if (bulls === 4) {
+        isGameOver = true;
+        input.disabled = true;
+        checkBtn.disabled = true;
+    }
+
+    render();
+});
+
+input.addEventListener('input', () => {
+    if (errorMessage.textContent) {
+        errorMessage.textContent = '';
+    }
+});
+
+newGameBtn.addEventListener('click', () => {
+    initGame();
+});
+
+initGame(); 
