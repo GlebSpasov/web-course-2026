@@ -15,6 +15,7 @@ form.addEventListener('submit', (e) => {
 
     if (!text) {
         errorMessage.textContent = 'Поле не должно быть пустым!';
+        input.focus();
         return;
     }
 
@@ -25,37 +26,26 @@ form.addEventListener('submit', (e) => {
 });
 
 input.addEventListener('input', () => {
-    if (input.value.trim()) {
-        errorMessage.textContent = '';
-    }
+    if (input.value.trim()) errorMessage.textContent = '';
 });
 
 filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        filterBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
+        filterBtns.forEach((b) => b.classList.toggle('active', b === btn));
         currentFilter = btn.dataset.filter;
         render();
     });
 });
 
 function addTodo(text) {
-    const newTodo = {
-        id: Date.now(),
-        text: text,
-        completed: false
-    };
-    todos.push(newTodo);
+    todos.unshift({ id: Date.now(), text, completed: false });
     render();
 }
 
 function toggleTodo(id) {
-    todos = todos.map((todo) => {
-        if (todo.id === id) {
-            return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-    });
+    todos = todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
     render();
 }
 
@@ -90,8 +80,7 @@ function render() {
         span.className = `todo-item__text ${todo.completed ? 'completed' : ''}`;
         span.textContent = todo.text;
 
-        contentDiv.appendChild(checkbox);
-        contentDiv.appendChild(span);
+        contentDiv.append(checkbox, span);
 
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
@@ -99,17 +88,16 @@ function render() {
         deleteBtn.title = 'Удалить задачу';
         deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
 
-        li.appendChild(contentDiv);
-        li.appendChild(deleteBtn);
-
-        todoList.appendChild(li);
+        li.append(contentDiv, deleteBtn);
+        todoList.append(li);
     });
 
     const activeCount = todos.filter((todo) => !todo.completed).length;
-    const completedCount = todos.filter((todo) => todo.completed).length;
+    const completedCount = todos.length - activeCount;
 
     activeCountEl.textContent = activeCount;
     completedCountEl.textContent = completedCount;
 }
 
 render();
+input.focus();
