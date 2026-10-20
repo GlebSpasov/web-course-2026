@@ -61,7 +61,7 @@ function render() {
         if (currentFilter === 'active') return !todo.completed;
         if (currentFilter === 'completed') return todo.completed;
         return true;
-    });
+    }).reverse();
 
     filteredTodos.forEach((todo) => {
         const li = document.createElement('li');
