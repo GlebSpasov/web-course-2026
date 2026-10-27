@@ -1,0 +1,116 @@
+:root {
+    --bg-color: #121214;
+    --card-bg: #1e1e24;
+    --text-main: #f0f0f5;
+    --text-muted: #a0a0ab;
+    --border-color: #2e2e38;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+.game-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.game-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.game-info {
+    margin-bottom: 2rem;
+}
+
+#game-status {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.score-display {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.simon-board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 2rem auto;
+}
+
+.simon-btn {
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: transform 0.1s, opacity 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.simon-btn:not(:disabled):hover {
+    opacity: 0.7;
+}
+
+.simon-btn:not(:disabled):active {
+    transform: scale(0.96);
+}
+
+.btn-0 { background-color: #ef4444; } /* Красный */
+.btn-1 { background-color: #22c55e; } /* Зеленый */
+.btn-2 { background-color: #eab308; } /* Желтый */
+.btn-3 { background-color: #3b82f6; } /* Синий */
+
+.simon-btn.active {
+    opacity: 1 !important;
+    box-shadow: 0 0 25px currentColor;
+    transform: scale(1.04);
+}
+
+.btn-start {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.btn-start:hover {
+    background-color: #4f46e5;
+}
+
+.btn-start:active {
+    transform: scale(0.98);
+}
