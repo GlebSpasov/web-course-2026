@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Змейка</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Змейка</h1>
+    <div class="score">Счёт: <span id="score">0</span></div>
+
+    <div class="field">
+      <canvas id="canvas"></canvas>
+      <div class="overlay" id="overlay" hidden>
+        <h2>Игра окончена</h2>
+        <p>Итоговый счёт: <span id="finalScore">0</span></p>
+        <button id="restartBtn" class="restart">Начать заново</button>
+      </div>
+    </div>
+
+    <p class="hint">Управление: стрелки на клавиатуре</p>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
